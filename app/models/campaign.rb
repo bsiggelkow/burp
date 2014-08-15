@@ -1,12 +1,10 @@
-class Campaign
-  include Mongoid::Document
-
-  field :name, type: String
-  field :objective, type: String
-  field :campaign_group_status, type: String
-  field :buying_type, type: String
-
-  include Mongoid::Timestamps
+class Campaign < Couchbase::Model
+  attribute :name
+  attribute :objective
+  attribute :campaign_group_status
+  attribute :buying_type
 
   validates :name, :presence => true
+
+  view :all
 end
