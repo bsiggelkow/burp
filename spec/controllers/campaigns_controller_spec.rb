@@ -17,7 +17,7 @@ RSpec.describe CampaignsController, :type => :controller do
       campaign1, campaign2 = Campaign.create!(name: 'foo'), Campaign.create!(name: 'bar')
       get :index
 
-      expect(assigns(:campaigns)).to match_array([campaign1, campaign2])
+      expect(assigns(:campaigns).map(&:name)).to match_array([campaign1, campaign2].map(&:name))
     end
   end
 end
