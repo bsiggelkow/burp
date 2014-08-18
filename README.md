@@ -10,7 +10,7 @@ There are five branches of this application each using a different backing data 
 * couchbase - Couchbase (v2.5.1)
 
 ## Setting up the datastore
-This master branch simply uses SQLite as a backing datastore. SQLite stores the datbase in a simple file. Run the following commands to create the test and development databases.
+This branch uses PostgreSQL relational database as a backing datastore. After installing the PostgreSQL database (if needed), run the following commands to create the development and test databases.
 
 ```
 rake db:create
@@ -26,7 +26,7 @@ RAILS_ENV=[development|test] rails db
 or
 
 ```
-sqlite3 db/[development|test].sqlite3
+psql [burp_development|burp_test]
 ```
 
 Note that, by default, the *test* database is cleaned after every spec run.
