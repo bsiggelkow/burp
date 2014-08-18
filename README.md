@@ -10,7 +10,11 @@ There are five branches of this application each using a different backing data 
 * couchbase - Couchbase (v2.5.1)
 
 ## Setting up the datastore
-This master branch simply uses SQLite as a backing datastore. SQLite stores the datbase in a simple file. Run the following commands to create the test and development databases.
+This branch uses MariaDB as a backing datastore. MariaDB is an open-source fork of Oracle's MySQL database (sans Oracle corporate baggage) and is a drop-in replacement for MySQL.
+
+To install MariaDB, follow the installation instructions for your operating systems found on the MariaDB website.
+
+Once the database server is installed and running, un the following commands to create the test and development databases.
 
 ```
 rake db:create
@@ -26,7 +30,7 @@ RAILS_ENV=[development|test] rails db
 or
 
 ```
-sqlite3 db/[development|test].sqlite3
+mysql [burp_development|burp_test]
 ```
 
 Note that, by default, the *test* database is cleaned after every spec run.
