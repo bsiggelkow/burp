@@ -10,26 +10,14 @@ There are five branches of this application each using a different backing data 
 * couchbase - Couchbase (v2.5.1)
 
 ## Setting up the datastore
-This master branch simply uses SQLite as a backing datastore. SQLite stores the datbase in a simple file. Run the following commands to create the test and development databases.
+This branch uses the Couchbase database as a backing datastore. You must have Couchbase running and installed. In addition, you need to manually create the following data buckects in Couchbase:
 
-```
-rake db:create
-rake db:migrate
-```
+* burp_development
+* burp_test
 
-The database can be accessed using:
+This latter test database needs to be configured to allow "flush". This will allow the test suites to clear the database of all data after each test run.
 
-```
-RAILS_ENV=[development|test] rails db
-```
-
-or
-
-```
-sqlite3 db/[development|test].sqlite3
-```
-
-Note that, by default, the *test* database is cleaned after every spec run.
+The database can be accessed using the Couchbase web console. 
 
 ## Running the Specs (tests)
 Running the `spec` rake task well execute all tests for the application.
