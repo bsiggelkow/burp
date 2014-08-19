@@ -10,26 +10,19 @@ There are five branches of this application each using a different backing data 
 * couchbase - Couchbase (v2.5.1)
 
 ## Setting up the datastore
-This master branch simply uses SQLite as a backing datastore. SQLite stores the datbase in a simple file. Run the following commands to create the test and development databases.
+This branch simply uses the MongoDB NoSQL database as a backing datastore. 
+
+You will need to have the MongoDB server (e.g. mongod) running on your system and configured to use it's default port of 27017.
+
+No other changes are necessary, however if MongoDB is running on a different server or on a different port, or you want to use different database names than `burp_development` and `burp_test`, you can make these configuration changes in the `config/mongoid.yml` file.
+
+The database can be accessed via the Mongo shell using:
 
 ```
-rake db:create
-rake db:migrate
+mongo [burp_development|burp_test]
 ```
 
-The database can be accessed using:
-
-```
-RAILS_ENV=[development|test] rails db
-```
-
-or
-
-```
-sqlite3 db/[development|test].sqlite3
-```
-
-Note that, by default, the *test* database is cleaned after every spec run.
+Note that, by default, the *test* database is cleaned before every spec run.
 
 ## Running the Specs (tests)
 Running the `spec` rake task well execute all tests for the application.
