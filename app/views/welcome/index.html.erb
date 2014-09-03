@@ -1,0 +1,17 @@
+<html>
+  <head>
+    <title>Load-Balancing Test</title>
+  </head>
+  <body>
+    <h2>Hello from</h2>
+    <h2><%= @settings.hostname %></h2>
+    <h3>(<%= @settings.hostip %>)</h3>
+    <span style="color:#5C5C5C">
+      <br/>
+      In the <span style="color:#000000"><strong><%= @settings.environment %></strong></span> environment
+      <br/>
+      <br/>
+      Response took <%= render_time %> milliseconds to generate
+    </span>
+  </body>
+</html>
