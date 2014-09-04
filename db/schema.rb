@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140904170711) do
+ActiveRecord::Schema.define(version: 20140904172849) do
 
   create_table "accounts", force: true do |t|
     t.string   "name"
@@ -21,6 +21,28 @@ ActiveRecord::Schema.define(version: 20140904170711) do
   end
 
   add_index "accounts", ["client_id"], name: "index_accounts_on_client_id"
+
+  create_table "ad_sets", force: true do |t|
+    t.string   "name"
+    t.integer  "initiative_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "ad_sets", ["initiative_id"], name: "index_ad_sets_on_initiative_id"
+
+  create_table "ads", force: true do |t|
+    t.string   "name"
+    t.integer  "ad_set_id"
+    t.integer  "target_id"
+    t.integer  "creative_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "ads", ["ad_set_id"], name: "index_ads_on_ad_set_id"
+  add_index "ads", ["creative_id"], name: "index_ads_on_creative_id"
+  add_index "ads", ["target_id"], name: "index_ads_on_target_id"
 
   create_table "campaigns", force: true do |t|
     t.string   "name"
@@ -34,6 +56,28 @@ ActiveRecord::Schema.define(version: 20140904170711) do
   create_table "clients", force: true do |t|
     t.string   "name"
     t.string   "contact"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "creatives", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "initiatives", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "account_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "initiatives", ["account_id"], name: "index_initiatives_on_account_id"
+
+  create_table "targets", force: true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
