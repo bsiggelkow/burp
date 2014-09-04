@@ -1,1 +1,1 @@
-json.extract! @platform, :id, :name, :base_url, :attributes, :created_at, :updated_at
+json.extract! @platform, :id, :name, :base_url, :features, :created_at, :updated_at

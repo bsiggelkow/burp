@@ -5,7 +5,7 @@ RSpec.describe "platforms/show", :type => :view do
     @platform = assign(:platform, Platform.create!(
       :name => "Name",
       :base_url => "Base Url",
-      :attributes => "MyText"
+      :features => '{"foo":"bar"}'
     ))
   end
 
@@ -13,6 +13,5 @@ RSpec.describe "platforms/show", :type => :view do
     render
     expect(rendered).to match(/Name/)
     expect(rendered).to match(/Base Url/)
-    expect(rendered).to match(/MyText/)
   end
 end

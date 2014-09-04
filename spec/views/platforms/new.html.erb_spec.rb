@@ -5,7 +5,7 @@ RSpec.describe "platforms/new", :type => :view do
     assign(:platform, Platform.new(
       :name => "MyString",
       :base_url => "MyString",
-      :attributes => "MyText"
+      :features => '{"foo":"bar"}'
     ))
   end
 
@@ -18,7 +18,7 @@ RSpec.describe "platforms/new", :type => :view do
 
       assert_select "input#platform_base_url[name=?]", "platform[base_url]"
 
-      assert_select "textarea#platform_attributes[name=?]", "platform[attributes]"
+      assert_select "textarea#platform_features[name=?]", "platform[features]"
     end
   end
 end

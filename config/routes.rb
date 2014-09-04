@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :platform_account_types
+
   resources :platforms
 
   resources :ads
