@@ -82,7 +82,7 @@ ActiveRecord::Schema.define(version: 20140904182843) do
   create_table "platforms", force: true do |t|
     t.string   "name"
     t.string   "base_url"
-    t.text     "attributes"
+    t.json     "attributes"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
