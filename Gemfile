@@ -28,7 +28,7 @@ gem 'spring',        group: :development
 
 group :test, :development do
   gem 'rspec-rails'
-  gem 'simplecov'
+  gem 'simplecov', require: false
 end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
