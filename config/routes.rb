@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  resources :ads
+
+  resources :ad_sets
+
+  resources :initiatives
+
+  resources :accounts
+
+  resources :clients
+
   root 'welcome#index'
   resources :campaigns
 

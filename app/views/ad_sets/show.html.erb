@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @ad_set.name %>
+</p>
+
+<p>
+  <strong>Initiative:</strong>
+  <%= @ad_set.initiative %>
+</p>
+
+<%= link_to 'Edit', edit_ad_set_path(@ad_set) %> |
+<%= link_to 'Back', ad_sets_path %>

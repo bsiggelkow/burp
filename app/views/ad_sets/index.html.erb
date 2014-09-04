@@ -1,0 +1,27 @@
+<h1>Listing ad_sets</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Initiative</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ad_sets.each do |ad_set| %>
+      <tr>
+        <td><%= ad_set.name %></td>
+        <td><%= ad_set.initiative %></td>
+        <td><%= link_to 'Show', ad_set %></td>
+        <td><%= link_to 'Edit', edit_ad_set_path(ad_set) %></td>
+        <td><%= link_to 'Destroy', ad_set, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ad set', new_ad_set_path %>
