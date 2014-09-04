@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @platform_ad_set.name %>
+</p>
+
+<p>
+  <strong>Uri:</strong>
+  <%= @platform_ad_set.uri %>
+</p>
+
+<p>
+  <strong>Features:</strong>
+  <%= @platform_ad_set.features %>
+</p>
+
+<p>
+  <strong>Ad set:</strong>
+  <%= @platform_ad_set.ad_set %>
+</p>
+
+<p>
+  <strong>Platform ad set type:</strong>
+  <%= @platform_ad_set.platform_ad_set_type %>
+</p>
+
+<%= link_to 'Edit', edit_platform_ad_set_path(@platform_ad_set) %> |
+<%= link_to 'Back', platform_ad_sets_path %>

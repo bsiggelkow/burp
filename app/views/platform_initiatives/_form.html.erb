@@ -1,0 +1,37 @@
+<%= form_for(@platform_initiative) do |f| %>
+  <% if @platform_initiative.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@platform_initiative.errors.count, "error") %> prohibited this platform_initiative from being saved:</h2>
+
+      <ul>
+      <% @platform_initiative.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :uri %><br>
+    <%= f.text_field :uri %>
+  </div>
+  <div class="field">
+    <%= f.label :features %><br>
+    <%= f.text_field :features %>
+  </div>
+  <div class="field">
+    <%= f.label :initiative_id %><br>
+    <%= f.text_field :initiative_id %>
+  </div>
+  <div class="field">
+    <%= f.label :platform_initiative_type_id %><br>
+    <%= f.text_field :platform_initiative_type_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

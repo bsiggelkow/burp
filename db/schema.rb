@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140904194220) do
+ActiveRecord::Schema.define(version: 20140904205906) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -103,6 +103,81 @@ ActiveRecord::Schema.define(version: 20140904194220) do
 
   add_index "platform_accounts", ["account_id"], name: "index_platform_accounts_on_account_id", using: :btree
   add_index "platform_accounts", ["platform_account_type_id"], name: "index_platform_accounts_on_platform_account_type_id", using: :btree
+
+  create_table "platform_ad_set_types", force: true do |t|
+    t.string   "name"
+    t.integer  "platform_id"
+    t.string   "endpoint"
+    t.json     "schema"
+    t.json     "field_mapping"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "platform_ad_set_types", ["platform_id"], name: "index_platform_ad_set_types_on_platform_id", using: :btree
+
+  create_table "platform_ad_sets", force: true do |t|
+    t.string   "name"
+    t.string   "uri"
+    t.json     "features"
+    t.integer  "ad_set_id"
+    t.integer  "platform_ad_set_type_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "platform_ad_sets", ["ad_set_id"], name: "index_platform_ad_sets_on_ad_set_id", using: :btree
+  add_index "platform_ad_sets", ["platform_ad_set_type_id"], name: "index_platform_ad_sets_on_platform_ad_set_type_id", using: :btree
+
+  create_table "platform_ad_types", force: true do |t|
+    t.string   "name"
+    t.integer  "platform_id"
+    t.string   "endpoint"
+    t.json     "schema"
+    t.json     "field_mapping"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "platform_ad_types", ["platform_id"], name: "index_platform_ad_types_on_platform_id", using: :btree
+
+  create_table "platform_ads", force: true do |t|
+    t.string   "name"
+    t.string   "uri"
+    t.json     "features"
+    t.integer  "ad_id"
+    t.integer  "platform_ad_type_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "platform_ads", ["ad_id"], name: "index_platform_ads_on_ad_id", using: :btree
+  add_index "platform_ads", ["platform_ad_type_id"], name: "index_platform_ads_on_platform_ad_type_id", using: :btree
+
+  create_table "platform_initiative_types", force: true do |t|
+    t.string   "name"
+    t.integer  "platform_id"
+    t.string   "endpoint"
+    t.json     "schema"
+    t.json     "field_mapping"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "platform_initiative_types", ["platform_id"], name: "index_platform_initiative_types_on_platform_id", using: :btree
+
+  create_table "platform_initiatives", force: true do |t|
+    t.string   "name"
+    t.string   "uri"
+    t.json     "features"
+    t.integer  "initiative_id"
+    t.integer  "platform_initiative_type_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "platform_initiatives", ["initiative_id"], name: "index_platform_initiatives_on_initiative_id", using: :btree
+  add_index "platform_initiatives", ["platform_initiative_type_id"], name: "index_platform_initiatives_on_platform_initiative_type_id", using: :btree
 
   create_table "platforms", force: true do |t|
     t.string   "name"

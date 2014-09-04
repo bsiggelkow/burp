@@ -1,0 +1,33 @@
+<h1>Listing platform_ad_sets</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Uri</th>
+      <th>Features</th>
+      <th>Ad set</th>
+      <th>Platform ad set type</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @platform_ad_sets.each do |platform_ad_set| %>
+      <tr>
+        <td><%= platform_ad_set.name %></td>
+        <td><%= platform_ad_set.uri %></td>
+        <td><%= platform_ad_set.features %></td>
+        <td><%= platform_ad_set.ad_set %></td>
+        <td><%= platform_ad_set.platform_ad_set_type %></td>
+        <td><%= link_to 'Show', platform_ad_set %></td>
+        <td><%= link_to 'Edit', edit_platform_ad_set_path(platform_ad_set) %></td>
+        <td><%= link_to 'Destroy', platform_ad_set, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Platform ad set', new_platform_ad_set_path %>

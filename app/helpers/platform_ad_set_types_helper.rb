@@ -1,0 +1,2 @@
+module PlatformAdSetTypesHelper
+end

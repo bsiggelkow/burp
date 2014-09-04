@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+  resources :platform_ad_sets
+
+  resources :platform_ad_set_types
+
+  resources :platform_ads
+
+  resources :platform_ad_types
+
+  resources :platform_initiatives
+
+  resources :platform_initiative_types
+
   resources :platform_accounts
 
   resources :platform_account_types

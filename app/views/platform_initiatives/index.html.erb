@@ -1,0 +1,33 @@
+<h1>Listing platform_initiatives</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Uri</th>
+      <th>Features</th>
+      <th>Initiative</th>
+      <th>Platform initiative type</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @platform_initiatives.each do |platform_initiative| %>
+      <tr>
+        <td><%= platform_initiative.name %></td>
+        <td><%= platform_initiative.uri %></td>
+        <td><%= platform_initiative.features %></td>
+        <td><%= platform_initiative.initiative %></td>
+        <td><%= platform_initiative.platform_initiative_type %></td>
+        <td><%= link_to 'Show', platform_initiative %></td>
+        <td><%= link_to 'Edit', edit_platform_initiative_path(platform_initiative) %></td>
+        <td><%= link_to 'Destroy', platform_initiative, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Platform initiative', new_platform_initiative_path %>

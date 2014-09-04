@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @platform_initiative.name %>
+</p>
+
+<p>
+  <strong>Uri:</strong>
+  <%= @platform_initiative.uri %>
+</p>
+
+<p>
+  <strong>Features:</strong>
+  <%= @platform_initiative.features %>
+</p>
+
+<p>
+  <strong>Initiative:</strong>
+  <%= @platform_initiative.initiative %>
+</p>
+
+<p>
+  <strong>Platform initiative type:</strong>
+  <%= @platform_initiative.platform_initiative_type %>
+</p>
+
+<%= link_to 'Edit', edit_platform_initiative_path(@platform_initiative) %> |
+<%= link_to 'Back', platform_initiatives_path %>

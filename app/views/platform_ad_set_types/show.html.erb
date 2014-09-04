@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @platform_ad_set_type.name %>
+</p>
+
+<p>
+  <strong>Platform:</strong>
+  <%= @platform_ad_set_type.platform %>
+</p>
+
+<p>
+  <strong>Endpoint:</strong>
+  <%= @platform_ad_set_type.endpoint %>
+</p>
+
+<p>
+  <strong>Schema:</strong>
+  <%= @platform_ad_set_type.schema %>
+</p>
+
+<p>
+  <strong>Field mapping:</strong>
+  <%= @platform_ad_set_type.field_mapping %>
+</p>
+
+<%= link_to 'Edit', edit_platform_ad_set_type_path(@platform_ad_set_type) %> |
+<%= link_to 'Back', platform_ad_set_types_path %>
