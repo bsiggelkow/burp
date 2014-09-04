@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :accounts
+
+  resources :clients
+
   root 'welcome#index'
   resources :campaigns
 
