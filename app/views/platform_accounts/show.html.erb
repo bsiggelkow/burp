@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @platform_account.name %>
+</p>
+
+<p>
+  <strong>Uri:</strong>
+  <%= @platform_account.uri %>
+</p>
+
+<p>
+  <strong>Features:</strong>
+  <%= @platform_account.features %>
+</p>
+
+<p>
+  <strong>Account:</strong>
+  <%= @platform_account.account %>
+</p>
+
+<p>
+  <strong>Platform account type:</strong>
+  <%= @platform_account.platform_account_type %>
+</p>
+
+<%= link_to 'Edit', edit_platform_account_path(@platform_account) %> |
+<%= link_to 'Back', platform_accounts_path %>

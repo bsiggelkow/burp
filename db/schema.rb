@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140904184745) do
+ActiveRecord::Schema.define(version: 20140904194220) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -90,6 +90,19 @@ ActiveRecord::Schema.define(version: 20140904184745) do
   end
 
   add_index "platform_account_types", ["platform_id"], name: "index_platform_account_types_on_platform_id", using: :btree
+
+  create_table "platform_accounts", force: true do |t|
+    t.string   "name"
+    t.string   "uri"
+    t.json     "features"
+    t.integer  "account_id"
+    t.integer  "platform_account_type_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "platform_accounts", ["account_id"], name: "index_platform_accounts_on_account_id", using: :btree
+  add_index "platform_accounts", ["platform_account_type_id"], name: "index_platform_accounts_on_platform_account_type_id", using: :btree
 
   create_table "platforms", force: true do |t|
     t.string   "name"
