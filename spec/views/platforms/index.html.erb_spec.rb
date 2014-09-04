@@ -6,12 +6,12 @@ RSpec.describe "platforms/index", :type => :view do
       Platform.create!(
         :name => "Name",
         :base_url => "Base Url",
-        :attributes => "MyText"
+        :features => "MyText"
       ),
       Platform.create!(
         :name => "Name",
         :base_url => "Base Url",
-        :attributes => "MyText"
+        :features => "MyText"
       )
     ])
   end

@@ -5,7 +5,7 @@ RSpec.describe "platforms/edit", :type => :view do
     @platform = assign(:platform, Platform.create!(
       :name => "MyString",
       :base_url => "MyString",
-      :attributes => "MyText"
+      :features => "MyText"
     ))
   end
 
@@ -18,7 +18,7 @@ RSpec.describe "platforms/edit", :type => :view do
 
       assert_select "input#platform_base_url[name=?]", "platform[base_url]"
 
-      assert_select "textarea#platform_attributes[name=?]", "platform[attributes]"
+      assert_select "textarea#platform_features[name=?]", "platform[features]"
     end
   end
 end

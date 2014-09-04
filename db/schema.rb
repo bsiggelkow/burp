@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140904182843) do
+ActiveRecord::Schema.define(version: 20140904184745) do
 
   create_table "accounts", force: true do |t|
     t.string   "name"
@@ -76,10 +76,22 @@ ActiveRecord::Schema.define(version: 20140904182843) do
 
   add_index "initiatives", ["account_id"], name: "index_initiatives_on_account_id"
 
+  create_table "platform_account_types", force: true do |t|
+    t.string   "name"
+    t.integer  "platform_id"
+    t.string   "endpoint"
+    t.text     "schema"
+    t.text     "field_mapping"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "platform_account_types", ["platform_id"], name: "index_platform_account_types_on_platform_id"
+
   create_table "platforms", force: true do |t|
     t.string   "name"
     t.string   "base_url"
-    t.text     "attributes"
+    t.text     "features"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

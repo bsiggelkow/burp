@@ -5,7 +5,7 @@ RSpec.describe "platforms/show", :type => :view do
     @platform = assign(:platform, Platform.create!(
       :name => "Name",
       :base_url => "Base Url",
-      :attributes => "MyText"
+      :features => "MyText"
     ))
   end
 
