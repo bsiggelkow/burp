@@ -30,6 +30,9 @@ group :test, :development do
   gem 'rspec-rails'
   gem 'simplecov', require: false
 end
+
+gem 'rack-mini-profiler'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
