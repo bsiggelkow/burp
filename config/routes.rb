@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :platforms
+
   resources :ads
 
   resources :ad_sets

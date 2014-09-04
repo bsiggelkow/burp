@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140904172849) do
+ActiveRecord::Schema.define(version: 20140904182843) do
 
   create_table "accounts", force: true do |t|
     t.string   "name"
@@ -75,6 +75,14 @@ ActiveRecord::Schema.define(version: 20140904172849) do
   end
 
   add_index "initiatives", ["account_id"], name: "index_initiatives_on_account_id"
+
+  create_table "platforms", force: true do |t|
+    t.string   "name"
+    t.string   "base_url"
+    t.text     "attributes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "targets", force: true do |t|
     t.string   "name"
