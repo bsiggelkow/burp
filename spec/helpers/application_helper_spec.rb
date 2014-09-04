@@ -10,6 +10,11 @@ require 'rails_helper'
 #     end
 #   end
 # end
-RSpec.describe WelcomeHelper, :type => :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+RSpec.describe ApplicationHelper, :type => :helper do
+  describe 'render_time' do
+    it 'computes the render time' do
+      assign(:start_time, 5.seconds.ago)
+      expect(helper.render_time).to be_within(0.5).of(5)
+    end
+  end
 end
