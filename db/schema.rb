@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140904205906) do
+ActiveRecord::Schema.define(version: 20140905125147) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -154,6 +154,31 @@ ActiveRecord::Schema.define(version: 20140904205906) do
   add_index "platform_ads", ["ad_id"], name: "index_platform_ads_on_ad_id", using: :btree
   add_index "platform_ads", ["platform_ad_type_id"], name: "index_platform_ads_on_platform_ad_type_id", using: :btree
 
+  create_table "platform_creative_types", force: true do |t|
+    t.string   "name"
+    t.integer  "platform_id"
+    t.string   "endpoint"
+    t.json     "schema"
+    t.json     "field_mapping"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "platform_creative_types", ["platform_id"], name: "index_platform_creative_types_on_platform_id", using: :btree
+
+  create_table "platform_creatives", force: true do |t|
+    t.string   "name"
+    t.string   "uri"
+    t.json     "features"
+    t.integer  "creative_id"
+    t.integer  "platform_creative_type_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "platform_creatives", ["creative_id"], name: "index_platform_creatives_on_creative_id", using: :btree
+  add_index "platform_creatives", ["platform_creative_type_id"], name: "index_platform_creatives_on_platform_creative_type_id", using: :btree
+
   create_table "platform_initiative_types", force: true do |t|
     t.string   "name"
     t.integer  "platform_id"
@@ -178,6 +203,31 @@ ActiveRecord::Schema.define(version: 20140904205906) do
 
   add_index "platform_initiatives", ["initiative_id"], name: "index_platform_initiatives_on_initiative_id", using: :btree
   add_index "platform_initiatives", ["platform_initiative_type_id"], name: "index_platform_initiatives_on_platform_initiative_type_id", using: :btree
+
+  create_table "platform_target_types", force: true do |t|
+    t.string   "name"
+    t.integer  "platform_id"
+    t.string   "endpoint"
+    t.json     "schema"
+    t.json     "field_mapping"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "platform_target_types", ["platform_id"], name: "index_platform_target_types_on_platform_id", using: :btree
+
+  create_table "platform_targets", force: true do |t|
+    t.string   "name"
+    t.string   "uri"
+    t.json     "features"
+    t.integer  "target_id"
+    t.integer  "platform_target_type_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "platform_targets", ["platform_target_type_id"], name: "index_platform_targets_on_platform_target_type_id", using: :btree
+  add_index "platform_targets", ["target_id"], name: "index_platform_targets_on_target_id", using: :btree
 
   create_table "platforms", force: true do |t|
     t.string   "name"

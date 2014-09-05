@@ -6,17 +6,14 @@ RSpec.describe "platform_ad_set_types/show", :type => :view do
       :name => "Name",
       :platform => nil,
       :endpoint => "Endpoint",
-      :schema => "",
-      :field_mapping => ""
+      :schema => '{"foo":"bar"}',
+      :field_mapping => '{"foo":"bar"}'
     ))
   end
 
   it "renders attributes in <p>" do
     render
     expect(rendered).to match(/Name/)
-    expect(rendered).to match(//)
     expect(rendered).to match(/Endpoint/)
-    expect(rendered).to match(//)
-    expect(rendered).to match(//)
   end
 end

@@ -5,7 +5,7 @@ RSpec.describe "platform_ad_sets/edit", :type => :view do
     @platform_ad_set = assign(:platform_ad_set, PlatformAdSet.create!(
       :name => "MyString",
       :uri => "MyString",
-      :features => "",
+      :features => '{"foo":"bar"}',
       :ad_set => nil,
       :platform_ad_set_type => nil
     ))

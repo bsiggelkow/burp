@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @platform_creative.name %>
+</p>
+
+<p>
+  <strong>Uri:</strong>
+  <%= @platform_creative.uri %>
+</p>
+
+<p>
+  <strong>Features:</strong>
+  <%= @platform_creative.features %>
+</p>
+
+<p>
+  <strong>Creative:</strong>
+  <%= @platform_creative.creative %>
+</p>
+
+<p>
+  <strong>Platform creative type:</strong>
+  <%= @platform_creative.platform_creative_type %>
+</p>
+
+<%= link_to 'Edit', edit_platform_creative_path(@platform_creative) %> |
+<%= link_to 'Back', platform_creatives_path %>

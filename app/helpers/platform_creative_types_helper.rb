@@ -1,0 +1,2 @@
+module PlatformCreativeTypesHelper
+end

@@ -5,7 +5,7 @@ RSpec.describe "platform_ad_sets/show", :type => :view do
     @platform_ad_set = assign(:platform_ad_set, PlatformAdSet.create!(
       :name => "Name",
       :uri => "Uri",
-      :features => "",
+      :features => '{"foo":"bar"}',
       :ad_set => nil,
       :platform_ad_set_type => nil
     ))
@@ -15,8 +15,5 @@ RSpec.describe "platform_ad_sets/show", :type => :view do
     render
     expect(rendered).to match(/Name/)
     expect(rendered).to match(/Uri/)
-    expect(rendered).to match(//)
-    expect(rendered).to match(//)
-    expect(rendered).to match(//)
   end
 end

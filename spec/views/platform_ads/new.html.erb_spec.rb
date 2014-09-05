@@ -5,7 +5,7 @@ RSpec.describe "platform_ads/new", :type => :view do
     assign(:platform_ad, PlatformAd.new(
       :name => "MyString",
       :uri => "MyString",
-      :features => "",
+      :features => '{"foo":"bar"}',
       :ad => nil,
       :platform_ad_type => nil
     ))

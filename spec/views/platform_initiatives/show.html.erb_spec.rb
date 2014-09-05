@@ -5,7 +5,7 @@ RSpec.describe "platform_initiatives/show", :type => :view do
     @platform_initiative = assign(:platform_initiative, PlatformInitiative.create!(
       :name => "Name",
       :uri => "Uri",
-      :features => "",
+      :features => '{"foo":"bar"}',
       :initiative => nil,
       :platform_initiative_type => nil
     ))
@@ -15,8 +15,5 @@ RSpec.describe "platform_initiatives/show", :type => :view do
     render
     expect(rendered).to match(/Name/)
     expect(rendered).to match(/Uri/)
-    expect(rendered).to match(//)
-    expect(rendered).to match(//)
-    expect(rendered).to match(//)
   end
 end

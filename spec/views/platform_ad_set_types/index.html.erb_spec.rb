@@ -7,15 +7,15 @@ RSpec.describe "platform_ad_set_types/index", :type => :view do
         :name => "Name",
         :platform => nil,
         :endpoint => "Endpoint",
-        :schema => "",
-        :field_mapping => ""
+        :schema => '{"foo":"bar"}',
+        :field_mapping => '{"foo":"bar"}'
       ),
       PlatformAdSetType.create!(
         :name => "Name",
         :platform => nil,
         :endpoint => "Endpoint",
-        :schema => "",
-        :field_mapping => ""
+        :schema => '{"foo":"bar"}',
+        :field_mapping => '{"foo":"bar"}'
       )
     ])
   end
@@ -23,9 +23,6 @@ RSpec.describe "platform_ad_set_types/index", :type => :view do
   it "renders a list of platform_ad_set_types" do
     render
     assert_select "tr>td", :text => "Name".to_s, :count => 2
-    assert_select "tr>td", :text => nil.to_s, :count => 2
     assert_select "tr>td", :text => "Endpoint".to_s, :count => 2
-    assert_select "tr>td", :text => "".to_s, :count => 2
-    assert_select "tr>td", :text => "".to_s, :count => 2
   end
 end

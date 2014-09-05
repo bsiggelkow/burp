@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  resources :platform_targets
+
+  resources :platform_creatives
+
+  resources :platform_target_types
+
+  resources :platform_creative_types
+
   resources :platform_ad_sets
 
   resources :platform_ad_set_types

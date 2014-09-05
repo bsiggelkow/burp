@@ -1,0 +1,37 @@
+<%= form_for(@platform_target) do |f| %>
+  <% if @platform_target.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@platform_target.errors.count, "error") %> prohibited this platform_target from being saved:</h2>
+
+      <ul>
+      <% @platform_target.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :uri %><br>
+    <%= f.text_field :uri %>
+  </div>
+  <div class="field">
+    <%= f.label :features %><br>
+    <%= f.text_field :features %>
+  </div>
+  <div class="field">
+    <%= f.label :target_id %><br>
+    <%= f.text_field :target_id %>
+  </div>
+  <div class="field">
+    <%= f.label :platform_target_type_id %><br>
+    <%= f.text_field :platform_target_type_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

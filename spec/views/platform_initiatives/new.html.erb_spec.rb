@@ -5,7 +5,7 @@ RSpec.describe "platform_initiatives/new", :type => :view do
     assign(:platform_initiative, PlatformInitiative.new(
       :name => "MyString",
       :uri => "MyString",
-      :features => "",
+      :features => '{"foo":"bar"}',
       :initiative => nil,
       :platform_initiative_type => nil
     ))

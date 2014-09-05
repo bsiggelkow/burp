@@ -5,7 +5,7 @@ RSpec.describe "platform_initiatives/edit", :type => :view do
     @platform_initiative = assign(:platform_initiative, PlatformInitiative.create!(
       :name => "MyString",
       :uri => "MyString",
-      :features => "",
+      :features => '{"foo":"bar"}',
       :initiative => nil,
       :platform_initiative_type => nil
     ))

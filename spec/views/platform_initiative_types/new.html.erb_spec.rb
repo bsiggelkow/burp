@@ -6,8 +6,8 @@ RSpec.describe "platform_initiative_types/new", :type => :view do
       :name => "MyString",
       :platform => nil,
       :endpoint => "MyString",
-      :schema => "",
-      :field_mapping => ""
+      :schema => '{"foo":"bar"}',
+      :field_mapping => '{"foo":"bar"}'
     ))
   end
 

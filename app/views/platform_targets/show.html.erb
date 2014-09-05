@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @platform_target.name %>
+</p>
+
+<p>
+  <strong>Uri:</strong>
+  <%= @platform_target.uri %>
+</p>
+
+<p>
+  <strong>Features:</strong>
+  <%= @platform_target.features %>
+</p>
+
+<p>
+  <strong>Target:</strong>
+  <%= @platform_target.target %>
+</p>
+
+<p>
+  <strong>Platform target type:</strong>
+  <%= @platform_target.platform_target_type %>
+</p>
+
+<%= link_to 'Edit', edit_platform_target_path(@platform_target) %> |
+<%= link_to 'Back', platform_targets_path %>

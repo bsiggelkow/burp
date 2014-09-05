@@ -6,14 +6,14 @@ RSpec.describe "platform_initiatives/index", :type => :view do
       PlatformInitiative.create!(
         :name => "Name",
         :uri => "Uri",
-        :features => "",
+        :features => '{"foo":"bar"}',
         :initiative => nil,
         :platform_initiative_type => nil
       ),
       PlatformInitiative.create!(
         :name => "Name",
         :uri => "Uri",
-        :features => "",
+        :features => '{"foo":"bar"}',
         :initiative => nil,
         :platform_initiative_type => nil
       )
@@ -24,8 +24,5 @@ RSpec.describe "platform_initiatives/index", :type => :view do
     render
     assert_select "tr>td", :text => "Name".to_s, :count => 2
     assert_select "tr>td", :text => "Uri".to_s, :count => 2
-    assert_select "tr>td", :text => "".to_s, :count => 2
-    assert_select "tr>td", :text => nil.to_s, :count => 2
-    assert_select "tr>td", :text => nil.to_s, :count => 2
   end
 end

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @platform_creative_type.name %>
+</p>
+
+<p>
+  <strong>Platform:</strong>
+  <%= @platform_creative_type.platform %>
+</p>
+
+<p>
+  <strong>Endpoint:</strong>
+  <%= @platform_creative_type.endpoint %>
+</p>
+
+<p>
+  <strong>Schema:</strong>
+  <%= @platform_creative_type.schema %>
+</p>
+
+<p>
+  <strong>Field mapping:</strong>
+  <%= @platform_creative_type.field_mapping %>
+</p>
+
+<%= link_to 'Edit', edit_platform_creative_type_path(@platform_creative_type) %> |
+<%= link_to 'Back', platform_creative_types_path %>

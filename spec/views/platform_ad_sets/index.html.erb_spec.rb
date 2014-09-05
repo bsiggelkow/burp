@@ -6,14 +6,14 @@ RSpec.describe "platform_ad_sets/index", :type => :view do
       PlatformAdSet.create!(
         :name => "Name",
         :uri => "Uri",
-        :features => "",
+        :features => '{"foo":"bar"}',
         :ad_set => nil,
         :platform_ad_set_type => nil
       ),
       PlatformAdSet.create!(
         :name => "Name",
         :uri => "Uri",
-        :features => "",
+        :features => '{"foo":"bar"}',
         :ad_set => nil,
         :platform_ad_set_type => nil
       )
@@ -24,8 +24,5 @@ RSpec.describe "platform_ad_sets/index", :type => :view do
     render
     assert_select "tr>td", :text => "Name".to_s, :count => 2
     assert_select "tr>td", :text => "Uri".to_s, :count => 2
-    assert_select "tr>td", :text => "".to_s, :count => 2
-    assert_select "tr>td", :text => nil.to_s, :count => 2
-    assert_select "tr>td", :text => nil.to_s, :count => 2
   end
 end
