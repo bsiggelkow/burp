@@ -24,11 +24,11 @@ RSpec.describe AdsController, :type => :controller do
   # Ad. As you add validations to Ad, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    { name: 'Name' }
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    { name: '' }
   }
 
   # This should return the minimal set of values that should be in the session
@@ -103,14 +103,14 @@ RSpec.describe AdsController, :type => :controller do
   describe "PUT update" do
     describe "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        { name: 'Name' }
       }
 
       it "updates the requested ad" do
         ad = Ad.create! valid_attributes
         put :update, {:id => ad.to_param, :ad => new_attributes}, valid_session
         ad.reload
-        skip("Add assertions for updated state")
+        expect(ad.name).to eq(new_attributes[:name])
       end
 
       it "assigns the requested ad as @ad" do

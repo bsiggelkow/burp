@@ -5,4 +5,6 @@ class Platform < ActiveRecord::Base
   has_many :platform_ad_types
   has_many :platform_creative_types
   has_many :platform_target_types
+
+  validates_presence_of :name
 end
