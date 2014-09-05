@@ -4,5 +4,9 @@ class PlatformAccount < ActiveRecord::Base
   has_one :platform, through: :platform_account_type
 
   def stats
+    if stats_uri
+      conn = Faraday.new(:url => stats_uri)
+      JSON.parse(conn.get.body)
+    end
   end
 end
