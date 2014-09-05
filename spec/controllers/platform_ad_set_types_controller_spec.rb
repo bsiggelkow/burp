@@ -24,11 +24,11 @@ RSpec.describe PlatformAdSetTypesController, :type => :controller do
   # PlatformAdSetType. As you add validations to PlatformAdSetType, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    { name: 'Name' }
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    { name: '' }
   }
 
   # This should return the minimal set of values that should be in the session
@@ -103,14 +103,14 @@ RSpec.describe PlatformAdSetTypesController, :type => :controller do
   describe "PUT update" do
     describe "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        { name: 'New Name' }
       }
 
       it "updates the requested platform_ad_set_type" do
         platform_ad_set_type = PlatformAdSetType.create! valid_attributes
         put :update, {:id => platform_ad_set_type.to_param, :platform_ad_set_type => new_attributes}, valid_session
         platform_ad_set_type.reload
-        skip("Add assertions for updated state")
+        expect(platform_ad_set_type.name).to eq(new_attributes[:name])
       end
 
       it "assigns the requested platform_ad_set_type as @platform_ad_set_type" do
