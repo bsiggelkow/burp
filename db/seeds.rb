@@ -25,7 +25,7 @@ fwitter = Platform.create(
 )
 platform_account_type = PlatformAccountType.create(
   name: 'Facebook Ad Account', 
-  platform: platform,
+  platform: fakebook,
   endpoint: 'http://graph.fakebook.com/accounts/',
   schema: '{"title": "Example Schema", "type": "object", "properties": {"firstName": {"type": "string"}, "lastName": {"type": "string"}, "age": {"description": "Age in years", "type": "integer", "minimum": 0}}, "required": ["firstName", "lastName"]}',
   field_mapping: '{}'
