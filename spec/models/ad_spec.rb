@@ -1,5 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Ad, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { should belong_to :ad_set }
+  it { should belong_to :target }
+  it { should belong_to :creative }
 end

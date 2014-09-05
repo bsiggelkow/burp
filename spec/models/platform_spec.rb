@@ -1,5 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Platform, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { should have_many :platform_account_types }
+  it { should have_many :platform_initiative_types }
+  it { should have_many :platform_ad_set_types }
+  it { should have_many :platform_ad_types }
+  it { should have_many :platform_target_types }
+  it { should have_many :platform_creative_types }
 end

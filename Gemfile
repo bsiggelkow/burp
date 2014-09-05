@@ -28,7 +28,11 @@ gem 'spring',        group: :development
 
 group :test, :development do
   gem 'rspec-rails'
-  gem 'simplecov', require: false
+end
+
+group :test do
+  gem 'simplecov', require: false  
+  gem 'shoulda-matchers', require: false
 end
 
 gem 'rack-mini-profiler'

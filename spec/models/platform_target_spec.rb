@@ -1,5 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe PlatformTarget, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { should belong_to :target }
+  it { should belong_to :platform_target_type }
 end

@@ -1,5 +1,5 @@
 require 'rails_helper'
 
 RSpec.describe PlatformInitiativeType, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { should belong_to :platform }
 end

@@ -6,11 +6,11 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 client = Client.create(
-  name: 'Client 1', 
-  contact: 'foo@bar.com'
+  name: 'King Burger', 
+  contact: 'cmo@kingburger.com'
 )
 account = Account.create(
-  name: 'Account 1', 
+  name: 'King Burger Southeast', 
   client: client
 )
 fakebook = Platform.create(
@@ -24,9 +24,15 @@ fwitter = Platform.create(
   features: '{"baz":"buz"}'
 )
 platform_account_type = PlatformAccountType.create(
-  name: 'Facebook Ad Account', 
+  name: 'Fakebook Ad Account', 
   platform: fakebook,
   endpoint: 'http://graph.fakebook.com/accounts/',
   schema: '{"title": "Example Schema", "type": "object", "properties": {"firstName": {"type": "string"}, "lastName": {"type": "string"}, "age": {"description": "Age in years", "type": "integer", "minimum": 0}}, "required": ["firstName", "lastName"]}',
   field_mapping: '{}'
+)
+platform_account = PlatformAccount.create(
+  name: 'King Burger SE Fakebook',
+  account: account,
+  uri: 'http://graph.fakebook.com/accounts/',
+  platform_account_type: platform_account_type
 )

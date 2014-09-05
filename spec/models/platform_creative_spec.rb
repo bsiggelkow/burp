@@ -1,5 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe PlatformCreative, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { should belong_to :creative }
+  it { should belong_to :platform_creative_type }
 end
