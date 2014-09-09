@@ -11,11 +11,13 @@ class PlatformInitiative < ActiveRecord::Base
   private
 
   def create_remote_resource
-    conn = connection(platform_initiative_type.endpoint)
-    resp = conn.post do |req|
-      req.body = {objective: initiative.description, name: name}.to_json
+    if platform_initiative_type && platform_initiative_type.endpoint
+      conn = connection(platform_initiative_type.endpoint)
+      resp = conn.post do |req|
+        req.body = {objective: initiative.description, name: name}.to_json
+      end
+      self.uri = "#{platform_initiative_type.endpoint}/#{remote_id(resp)}"
     end
-    self.uri = "#{platform_initiative_type.endpoint}/#{remote_id(resp)}"
   end
 
 end

@@ -18,6 +18,34 @@ initiative = Initiative.create(
   description: 'Web site clicks', 
   account: account
 )
+ad_set = AdSet.create(
+  name: 'KB Click ads',
+  initiative: initiative 
+)
+target1 = Target.create(
+  name: '18-25 males'
+)
+target2 = Target.create(
+  name: 'Goldfish owners'
+)
+creative1 = Creative.create(
+  name: 'Waltzing Matilda'
+)
+creative2 = Creative.create(
+  name: 'Dancing Banana'
+)
+ad1 = Ad.create(
+  name: 'KB Click ad 1',
+  ad_set: ad_set,
+  target: target1,
+  creative: creative1
+)
+ad2 = Ad.create(
+  name: 'KB Click ad 2',
+  ad_set: ad_set,
+  target: target2,
+  creative: creative2
+)
 fakebook = Platform.create(
   name: 'Fakebook', 
   base_url: 'http://graph.fakebook.com', 
@@ -41,6 +69,39 @@ platform_initiative_type = PlatformInitiativeType.create(
   endpoint: 'http://localhost:8081/act_1/adcampaign_groups',  # Problem because this is account-specific 
   schema: '{"title": "Example Schema", "type": "object", "properties": {"firstName": {"type": "string"}, "lastName": {"type": "string"}, "age": {"description": "Age in years", "type": "integer", "minimum": 0}}, "required": ["firstName", "lastName"]}',
   field_mapping: '{}'
+)
+platform_ad_type = PlatformAdType.create(
+  name: 'Fakebook Basic Ad', 
+  platform: fakebook,
+  endpoint: nil,
+  schema: '{}',
+  field_mapping: [ # Maps Ad to Platform Ad 
+    {
+      source_field_info: 'name',
+      target_field: 'name',
+      transform: nil
+    },
+    {
+      source_field_info: nil,
+      target_field: 'features[bid_type]',
+      transform: {value: 'Hard-Coded Bid Type'}
+    },
+    {
+      source_field_info: 'creative.name',
+      target_field: 'features[creative]',
+      transform: nil
+    },
+    {
+      source_field_info: 'target.name',
+      target_field: 'features[targeting]',
+      transform: {format: 'hello target: %{target__name}s'}
+    },
+    {
+      source_field_info: ['creative.name','target.name'],
+      target_field: 'features[tracking_specs]',
+      transform: {module: 'Ad', callback: 'names_to_tracking_specs'}
+    }
+  ].to_json
 )
 platform_account = PlatformAccount.create(
   name: 'King Burger SE Fakebook',
