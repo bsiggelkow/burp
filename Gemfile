@@ -32,6 +32,7 @@ group :test, :development do
   gem 'rspec-rails'
   gem 'pry', require: true
   gem 'pry-byebug', require: true
+  gem 'pry-rails'
 end
 
 group :test do

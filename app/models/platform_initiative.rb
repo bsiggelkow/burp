@@ -1,8 +1,8 @@
 class PlatformInitiative < ActiveRecord::Base
-
+  include PlatformDefaults
   include PlatformConnection
 
-  before_create :create_remote_resource
+  after_create :create_remote_resource
 
   belongs_to :initiative
   belongs_to :platform_initiative_type
@@ -14,9 +14,10 @@ class PlatformInitiative < ActiveRecord::Base
     if platform_initiative_type && platform_initiative_type.endpoint
       conn = connection(platform_initiative_type.endpoint)
       resp = conn.post do |req|
-        req.body = {objective: initiative.description, name: name}.to_json
+        req.body = features
       end
       self.uri = "#{platform_initiative_type.endpoint}/#{remote_id(resp)}"
+      save!
     end
   end
 

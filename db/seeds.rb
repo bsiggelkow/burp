@@ -68,7 +68,20 @@ platform_initiative_type = PlatformInitiativeType.create(
   platform: fakebook,
   endpoint: 'http://localhost:8081/act_1/adcampaign_groups',  # Problem because this is account-specific 
   schema: '{"title": "Example Schema", "type": "object", "properties": {"firstName": {"type": "string"}, "lastName": {"type": "string"}, "age": {"description": "Age in years", "type": "integer", "minimum": 0}}, "required": ["firstName", "lastName"]}',
-  field_mapping: '{}'
+  field_mapping: [
+    {
+      source_field_info: 'name',
+      target_field: 'name',
+    },
+    {
+      source_field_info: 'name',
+      target_field: 'features[name]',
+    },
+    {
+      source_field_info: 'description',
+      target_field: 'features[objective]',
+    }
+  ].to_json
 )
 platform_ad_type = PlatformAdType.create(
   name: 'Fakebook Basic Ad', 
