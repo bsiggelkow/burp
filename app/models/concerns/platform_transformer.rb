@@ -13,13 +13,13 @@ module PlatformTransformer
   private
 
   def apply_mapping(mapping, source, target)
-    kwargs_dict = source_field_info_to_kwargs_dict(source, mapping['source_field_info'])
+    source_field_info_to_kwargs_dict(source, mapping['source_field_info'])
     transform = mapping['transform'] 
     target_field = mapping['target_field']
 
-    value = case transform
-    when NilClass
-      get_value_from_source_field(src, mapping['source_field_info'])
+    value = case
+    when NilClass === transform
+      get_value_from_source_field(source, mapping['source_field_info'])
     when transform['value']
       transform['value']
     when transform['format']
@@ -33,22 +33,25 @@ module PlatformTransformer
     set_target_field_value(target, target_field, value)
   end
 
+  def kwargs_dict
+    @kwargs_dict ||= {}
+  end
+
   def source_field_info_to_kwargs_dict(src, field_info)
-    kwargs_dict = {}
     case field_info
     when NilClass
       nil
     when String
-      set_source_field_in_kwargs_dict(src, field_info, kwargs_dict)
+      set_source_field_in_kwargs_dict(src, field_info)
     when Enumerable
-      field_info.each {|f| set_source_field_in_kwargs_dict(src, f, kwargs_dict)}
+      field_info.each {|f| set_source_field_in_kwargs_dict(src, f)}
     else
       raise Exception "Unexpected field info type: #{field_info.class}"
     end
   end
 
-  def set_source_field_in_kwargs_dict(src, source_field, kwargs_dict)
-    kwargs_dict[source_field.replace('.', '__').to_sym] = get_value_from_source_field(src, source_field)
+  def set_source_field_in_kwargs_dict(src, source_field)
+    kwargs_dict[source_field.gsub('.', '__').to_sym] = get_value_from_source_field(src, source_field)
   end
 
   def get_value_from_source_field(src, field_name)
@@ -71,11 +74,8 @@ module PlatformTransformer
     hierarchy = field_name.split(%r{[\.\[]+})
 
     hierarchy[0...-1].each do |item|
-      if item.end_with? ']'
-        target = target[item[0...-1]] # if item is 'foo]' call target['foo']
-      else
-        target.send(item)
-      end
+      # if item ends with ']' use the '[]' accessor; otherwise, call the method
+      target = (item.end_with? ']') ? target[item[0...-1]] : target.send(item)
     end
 
     last_item = hierarchy[-1]

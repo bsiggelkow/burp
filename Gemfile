@@ -30,6 +30,8 @@ gem 'faraday_middleware'
 
 group :test, :development do
   gem 'rspec-rails'
+  gem 'pry', require: true
+  gem 'pry-byebug', require: true
 end
 
 group :test do
